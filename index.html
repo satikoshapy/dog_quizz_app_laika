@@ -10,58 +10,93 @@
 </head>
 
 <body>
-    <h1>Hello, user!</h1>
     <div class="container d-flex justify-content-center">
         <div id="dogs">
-            <div id="but0"></div>
-            <div id="but1"></div>
-            <div id="but2"></div>
         </div>
     </div>
+    <div class="container">
+        <button type="button" class="btn btn-success" id="start-btn">Start guessing!</button>
+    </div>
     <script>
-        fetch("https://api-dog-breeds.herokuapp.com/api/dogs")
+        let count = 0;
+        let startBtn = document.getElementById("start-btn");
+        startBtn.addEventListener("click", function(){
+            getDogs();
+        })
+        
+        function getDogs() {
+            fetch("https://api-dog-breeds.herokuapp.com/api/dogs")
             .then(response => response.json())
             .then(data => {
-                displayData(data)
+                displayData(data);
+                count++;
             })
+        }
 
         function addElem(but, str) {
-            let arr = [0,1,2]
-            let randBut = Math.floor(Math.random() * 3);
-            for (var i = 0; i < arr.length; i++){
-                if(randBut == arr[i]){
-                    arr.splice(i,1)
-                }
-            }
             const preItem = `
-    <div class="card" style="width: 30rem;">
+    <div class="card d-flex justify-content-center" style="width: 30rem;" id="dog-card">
         `;
             const postItem = "</div> </div>";
-        
-            document.getElementById("dogs").innerHTML += preItem + str + but + postItem;
-           console.log(but);
-        }
+            let arr = [2,3,1,4];
+            let randBut = Math.floor(Math.random() * 4) + 1;
+            for (var i = 0; i < arr.length; i++){
+                if(randBut == arr[i]){
+                    arr.splice(i,1).pop(randBut)
+                }
+            }
+            let thatNum = arr[2];
+            let thatSecondNum = arr[1];
+            let thatThirdNum = arr[0];
+            document.getElementById("dogs").innerHTML += preItem + str + but.split("\n")[randBut] + but.split("\n")[thatNum] + but.split("\n")[thatSecondNum] + but.split("\n")[thatThirdNum] + postItem;
+
+            
+
+    }
+
 
         const displayData = (data) => {
             
-            for (var el of data) {
+            //for (var el of data) {
                 let randNum = Math.floor(Math.random() * 100);
-                addElem(`<div style="flex-direction: column;">
-                    <button class="btn btn-primary" style="color:red; width: 18rem;">${el.breedName}</button>
-                    <button class="btn btn-primary" style="width: 18rem;">${randNum == data.indexOf(el) ? data[randNum+1]["breedName"] : data[randNum]["breedName"]}</button>
-                    <button class="btn btn-primary" style="width: 18rem;">${data[randNum +2]["breedName"]}</button>
+                addElem(
+                    `<div style="flex-direction: column;" class="d-flex justify-content-center" id="btns">
+                    <button id="correct" class="btn btn-primary rounded-pill mt-2" style="width: 15rem;">${data[count].breedName}</button>
+                    <button id="incorrect" class="btn btn-primary rounded-pill mt-2" style="width: 15rem;">${randNum == data.indexOf(count) ? data[randNum+1]["breedName"] : data[randNum]["breedName"]}</button>
+                    <button id="incorrect" class="btn btn-primary rounded-pill mt-2" style="width: 15rem;">${data[randNum +2]["breedName"]}</button>
+                    <button id="incorrect" class="btn btn-primary rounded-pill mt-2" style="width: 15rem;">${data[randNum +3]["breedName"]}</button>
                     </div>`,
                     `
-                    <img src="${el.image}" class="card-img-top" alt="...">
-                    <h2>${el.dogInfo["breedGroup"]}</h2>
-                    <div class="card-body">
-                        <h5 class="card-title">Height: ${el.dogInfo["height"]}</h5>
-                        <h5">Weight: ${el.dogInfo["weight"]}</h5>
+                    <img src="${data[count].image}" class="card-img-top" alt="...">
+                    
                     
                     
                     `)
-            }
+                
+           // }
         }
+
+        let btnDiv = document.getElementById("dogs");
+        if(btnDiv){
+            btnDiv.addEventListener("click", function(event) {
+                if(event.target.id === "correct"){
+                    event.target.classList.add("btn-success");
+                    setTimeout(function(){
+                        document.getElementById("dog-card").remove();
+                        getDogs();
+                    }, 2000)
+                    
+                }
+                else if(event.target.id === "incorrect"){
+                    event.target.classList.add("btn-danger");
+                    setTimeout(function(){
+                        document.getElementById("dog-card").remove();
+                        getDogs();
+                    }, 2000)
+                }
+            })
+        }
+      
     </script>
 </body>
 
