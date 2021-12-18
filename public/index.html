@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en-US" dir="ltr">
+
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!--    Document Title-->
+    <title>Laika</title>
+    <script src="./app.js" defer></script>
+
+    <!--    Stylesheets-->
+    <link href="assets/css/theme.css" rel="stylesheet" />
+
+  </head>
+
+
+  <body>
+
+    <!-- ===============================================-->
+    <!--    Main Content-->
+    <!-- ===============================================-->
+    <main class="main" id="top">
+      <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top" data-navbar-on-scroll="data-navbar-on-scroll">
+        <div class="container">
+          <a class="navbar-brand d-inline-flex" href="index.html">
+            <!--<img class="d-inline-block" src="" alt="logo" />-->
+            <span class="text-1000 fs-3 fw-bold ms-2 text-gradient">Laika</span></a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"> </span></button>
+          <div class="collapse navbar-collapse border-top border-lg-0 my-2 mt-lg-0" id="navbarSupportedContent">
+            <!--<form class="d-flex mt-4 mt-lg-0 ms-lg-auto ms-xl-0">
+              <button class="btn btn-white shadow-warning text-warning" type="submit"> <i class="fas fa-user me-2"></i>Login</button>
+            </form>-->
+          </div>
+        </div>
+      </nav>
+      <section class="py-5 overflow-hidden bg-primary" id="home">
+        <div class="container">
+          <div class="row flex-center">
+            <div class="col-md-5 col-lg-6 order-0 order-md-1 mt-1 mt-md-0"><a class="img-landing-banner" href="#!"><img class="img-fluid rounded-circle" src="assets/img/taylor-kopel.png" alt="hero-header" /></a></div>
+            <div class="col-md-7 col-lg-6 py-8 text-md-start text-center">
+              <h1 class="display-1 fs-md-5 fs-lg-6 fs-xl-8 text-light">Where’s the paw-ty at?</h1>
+              <h1 class="text-800 mb-5 fs-4">Sign up with a few <br class="d-none d-xxl-block">clicks to find out</h1>
+              <div class="card w-xxl-75">
+                <div class="card-body">
+                  <nav>
+                    <div class="nav nav-tabs" id="nav-tab" role="tablist">
+                      <button class="nav-link active mb-3" id="nav-home-tab" data-bs-toggle="tab" data-bs-target="#nav-home" type="button" role="tab" aria-controls="nav-home" aria-selected="true">Sign up</button>
+                      <button class="nav-link mb-3" id="nav-profile-tab" data-bs-toggle="tab" data-bs-target="#nav-profile" type="button" role="tab" aria-controls="nav-profile" aria-selected="false">Log in</button>
+                    </div>
+                  </nav>
+                  <div class="tab-content mt-3" id="nav-tabContent">
+                    <div class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">
+                      <form class="row gx-2 gy-2 align-items-center">
+                        <div class="col">
+                          <div class="input-group-icon mb-3">
+                            <label class="visually-hidden" for="inputEmail">E-mail address</label>
+                            <input class="form-control input-box form-foodwagon-control" id="inputEmail" type="email" placeholder="Login or E-mail address" />
+                          </div>
+                          <div class="input-group-icon mb-3">
+                            <label class="visually-hidden" for="inputPassword">Password</label>
+                            <input class="form-control input-box form-foodwagon-control" id="inputPassword" type="password" placeholder="Password" />
+                          </div>
+                          <button class="btn btn-danger" id="submit" type="submit">Sign up</button>
+                        </div>
+                        <!--<div class="d-grid gap-3 col-sm-auto">-->
+                          
+                        <!--</div>-->
+                      </form>
+                    </div>
+                    <div class="tab-pane fade" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab">
+                      <form class="row gx-4 gy-2 align-items-center">
+                        <div class="col">
+                          <div class="input-group-icon mb-3">
+                            <label class="visually-hidden" for="inputEmail">E-mail address</label>
+                            <input class="form-control input-box form-foodwagon-control" id="inputEmail" type="email" placeholder="Login or E-mail address" />
+                          </div>
+                          <div class="input-group-icon mb-3">
+                            <label class="visually-hidden" for="inputPassword">Password</label>
+                            <input class="form-control input-box form-foodwagon-control" id="inputPassword" type="password" placeholder="Password" />
+                          </div>
+                          <button class="btn btn-danger" type="submit">Log in</button>
+                        </div>
+                      </form>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section class="py-0 pt-3 bg-1000">
+        <div class="container">
+        <hr class="border border-800" />
+        <div class="row flex-center pb-3">
+          <div class="col-md-6 order-0">
+              <p class="text-200 text-center text-md-start">All rights Reserved &copy; 2021</p>
+          </div>
+          <div class="col-md-6 order-1">
+              <p class="text-200 text-center text-md-end"> Made with&nbsp;
+                <svg class="bi bi-suit-heart-fill" xmlns="http://www.w3.org/2000/svg" width="15" height="15" fill="#FFB30E" viewBox="0 0 16 16">
+                  <path d="M4 1c2.21 0 4 1.755 4 3.92C8 2.755 9.79 1 12 1s4 1.755 4 3.92c0 3.263-3.234 4.414-7.608 9.608a.513.513 0 0 1-.784 0C3.234 9.334 0 8.183 0 4.92 0 2.755 1.79 1 4 1z"></path>
+                </svg>&nbsp;by&nbsp;<a class="text-200 fw-bold" href="https://themewagon.com/" target="_blank">Satiko Shapy </a>
+              </p>
+           </div>
+          </div>
+        </div>
+      </section>
+      
+    </main>
+  
+    <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@200;300;400;600;700;900&amp;display=swap" rel="stylesheet">
+  </body>
+
+</html>
