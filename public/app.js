@@ -144,6 +144,7 @@ let count = 0;
                 }
                 else if(event.target.id === "incorrect"){
                     event.target.classList.add("btn-danger");
+                    document.querySelector("#correct").classList.add("btn-success");
                     setTimeout(function(){
                         document.getElementById("dog-card").remove();
                         getDogs();
